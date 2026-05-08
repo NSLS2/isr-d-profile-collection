@@ -664,7 +664,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-ng-2.3.3-hceb46e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.25.0-py312h5253ce2_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
+      - pypi: https://files.pythonhosted.org/packages/51/89/da0f32b679b8769dd472eb2927308d328bf75c296629fd9f95135afacd0a/aioca-2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/34/6a/68cf0ccf958ddae11d6da56905cd71c5c8101a581abb67f8c7574b95823f/ophyd_async-0.17a2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/67/d8/8af47ecca80c365d5ffcdce6fae78ec71921052189c1486ba9dbac7a36f4/pvxslibs-1.3.2-cp312-cp312-manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/68/b9/f44b139096467996b4d85589d9880fd55f0c80a204d298a1b73d0adc2654/scanspec-1.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/72/89/0265b2b79424ed05b8d1e9c8fca71e1b150478e5b0c19aa50b0ae397326e/velocity_profile-1.0.0-py3-none-any.whl
+      - pypi: /home/xf04id/src/cditools
       - pypi: /home/xf04id/src/isrtools
   terminal:
     channels:
@@ -1251,7 +1256,12 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zlib-ng-2.3.3-hceb46e0_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstandard-0.25.0-py312h5253ce2_1.conda
       - conda: https://conda.anaconda.org/conda-forge/linux-64/zstd-1.5.7-hb78ec9c_6.conda
+      - pypi: https://files.pythonhosted.org/packages/51/89/da0f32b679b8769dd472eb2927308d328bf75c296629fd9f95135afacd0a/aioca-2.1-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/34/6a/68cf0ccf958ddae11d6da56905cd71c5c8101a581abb67f8c7574b95823f/ophyd_async-0.17a2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/67/d8/8af47ecca80c365d5ffcdce6fae78ec71921052189c1486ba9dbac7a36f4/pvxslibs-1.3.2-cp312-cp312-manylinux2014_x86_64.whl
+      - pypi: https://files.pythonhosted.org/packages/68/b9/f44b139096467996b4d85589d9880fd55f0c80a204d298a1b73d0adc2654/scanspec-1.0.0-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/72/89/0265b2b79424ed05b8d1e9c8fca71e1b150478e5b0c19aa50b0ae397326e/velocity_profile-1.0.0-py3-none-any.whl
+      - pypi: /home/xf04id/src/cditools
       - pypi: /home/xf04id/src/isrtools
 packages:
 - conda: https://conda.anaconda.org/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
@@ -1351,6 +1361,14 @@ packages:
   purls: []
   size: 631452
   timestamp: 1758743294412
+- pypi: https://files.pythonhosted.org/packages/51/89/da0f32b679b8769dd472eb2927308d328bf75c296629fd9f95135afacd0a/aioca-2.1-py3-none-any.whl
+  name: aioca
+  version: '2.1'
+  sha256: df0f062b81a4846d3e5705f0bfaf7bee9f876009302cf3b06ada93d6f5153b6f
+  requires_dist:
+  - numpy
+  - epicscorelibs>=7.0.3.99.4.0
+  requires_python: '>=3.8'
 - conda: https://conda.anaconda.org/conda-forge/noarch/aiofiles-25.1.0-pyhcf101f3_1.conda
   sha256: f37288164cf28b916b184b0a5e89225e17af0e0c9bcd4d0dc39e5a597fcfeed1
   md5: a6435dc39a8031d33d6d52859913e939
@@ -2403,6 +2421,43 @@ packages:
   - pkg:pypi/caproto?source=hash-mapping
   size: 280352
   timestamp: 1770670039751
+- pypi: /home/xf04id/src/cditools
+  name: cditools
+  version: 0.1.1.dev64+g04776b95f.d20260508
+  sha256: 8d150403b1dbd5cc6f2f621421facbd9a8aef505ba22ab908fd0346bc6f2b324
+  requires_dist:
+  - ophyd
+  - ophyd-async>=0.10.0a4
+  - h5py
+  - entrypoints ; extra == 'test'
+  - pytest>=6 ; extra == 'test'
+  - pytest-cov>=3 ; extra == 'test'
+  - pytest-asyncio>=0.18 ; extra == 'test'
+  - caproto[standard]>=0.4.2rc1,!=1.2.0 ; extra == 'test'
+  - tiled[minimal-client] ; extra == 'test'
+  - tiled[minimal-server] ; extra == 'test'
+  - ophyd>=1.10.6 ; extra == 'test'
+  - caproto[standard]>=0.4.2rc1,!=1.2.0 ; extra == 'dev'
+  - pytest>=6 ; extra == 'dev'
+  - pytest-cov>=3 ; extra == 'dev'
+  - pytest-asyncio>=0.18 ; extra == 'dev'
+  - pandas ; extra == 'dev'
+  - pre-commit ; extra == 'dev'
+  - ipython ; extra == 'dev'
+  - ruff ; extra == 'dev'
+  - aioca ; extra == 'dev'
+  - tiled[minimal-client,server] ; extra == 'dev'
+  - pyright ; extra == 'dev'
+  - ophyd>=1.10.6 ; extra == 'dev'
+  - twine ; extra == 'dev'
+  - build ; extra == 'dev'
+  - sphinx>=7.0 ; extra == 'docs'
+  - myst-parser>=0.13 ; extra == 'docs'
+  - sphinx-copybutton ; extra == 'docs'
+  - sphinx-autodoc-typehints ; extra == 'docs'
+  - furo>=2023.8.17 ; extra == 'docs'
+  requires_python: '>=3.9'
+  editable: true
 - conda: https://conda.anaconda.org/conda-forge/noarch/certifi-2026.4.22-pyhd8ed1ab_0.conda
   sha256: 989db6e5957c4b44fa600c68c681ec2f36a55e48f7c7f1c073d5e91caa8cd878
   md5: 929471569c93acefb30282a22060dcd5
@@ -7060,6 +7115,29 @@ packages:
   - pkg:pypi/ophyd?source=hash-mapping
   size: 216645
   timestamp: 1774985128351
+- pypi: https://files.pythonhosted.org/packages/34/6a/68cf0ccf958ddae11d6da56905cd71c5c8101a581abb67f8c7574b95823f/ophyd_async-0.17a2-py3-none-any.whl
+  name: ophyd-async
+  version: 0.17a2
+  sha256: 9e7e05d8fbd34ddc9fb907cbcab1b9fbd54fa9aa2d4a26615302d3841200ffeb
+  requires_dist:
+  - numpy
+  - bluesky>=1.13.1rc2
+  - event-model>=1.23
+  - pyyaml
+  - colorlog
+  - pydantic>=2.0
+  - pydantic-numpy
+  - stamina>=23.1.0
+  - scanspec>=0.8
+  - velocity-profile
+  - h5py ; extra == 'sim'
+  - aioca>=2.0a4 ; extra == 'ca'
+  - p4p>=4.2.0 ; extra == 'pva'
+  - pytango>=10.1.3 ; extra == 'tango'
+  - ipython ; extra == 'demo'
+  - matplotlib ; extra == 'demo'
+  - pyqt6 ; extra == 'demo'
+  requires_python: '>=3.11'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/orc-2.3.0-h21090e2_0.conda
   sha256: a60c2578c8422e0c67206d269767feb4d3e627511558b6866e5daf2231d5214d
   md5: 8027fce94fdfdf2e54f9d18cbae496df
@@ -8532,6 +8610,19 @@ packages:
   purls: []
   size: 387306
   timestamp: 1777466173323
+- pypi: https://files.pythonhosted.org/packages/68/b9/f44b139096467996b4d85589d9880fd55f0c80a204d298a1b73d0adc2654/scanspec-1.0.0-py3-none-any.whl
+  name: scanspec
+  version: 1.0.0
+  sha256: 4ad6dccd6ac19dbd8af888c80c5db53c70d6b8aee9d26c0ca174cebd3c396730
+  requires_dist:
+  - numpy
+  - click>=8.1
+  - pydantic>=2.0
+  - scipy ; extra == 'plotting'
+  - matplotlib ; extra == 'plotting'
+  - fastapi>=0.100.0 ; extra == 'service'
+  - uvicorn ; extra == 'service'
+  requires_python: '>=3.11'
 - conda: https://conda.anaconda.org/conda-forge/linux-64/scikit-image-0.26.0-np2py312h4ae17e4_0.conda
   sha256: 581a2228e6963b0707562f519ff68d6c97fad44711af56d3dbeb4a7377939cce
   md5: 36772b1aa2dbd7b75664294d50fecb79
@@ -9445,6 +9536,24 @@ packages:
   - pkg:pypi/uvloop?source=hash-mapping
   size: 596425
   timestamp: 1762472840090
+- pypi: https://files.pythonhosted.org/packages/72/89/0265b2b79424ed05b8d1e9c8fca71e1b150478e5b0c19aa50b0ae397326e/velocity_profile-1.0.0-py3-none-any.whl
+  name: velocity-profile
+  version: 1.0.0
+  sha256: b9082aedb2863748e1e6e56e7a794cd5742addd571f6ba2e13f4f5b8a09422d9
+  requires_dist:
+  - numpy
+  - copier ; extra == 'dev'
+  - mypy ; extra == 'dev'
+  - pipdeptree ; extra == 'dev'
+  - pre-commit ; extra == 'dev'
+  - pytest ; extra == 'dev'
+  - pytest-cov ; extra == 'dev'
+  - ruff ; extra == 'dev'
+  - tox-direct ; extra == 'dev'
+  - types-mock ; extra == 'dev'
+  - scanspec ; extra == 'dev'
+  - pydantic<2.0 ; extra == 'dev'
+  requires_python: '>=3.7'
 - conda: https://conda.anaconda.org/conda-forge/noarch/virtualenv-21.3.1-pyhcf101f3_0.conda
   sha256: 8888b4725d4166ab54435ba4b6a24e9f089578301a88f8157d012dd38a88ac43
   md5: dd6a1f3ce9d1cfa8b5b1b32953a80a55
