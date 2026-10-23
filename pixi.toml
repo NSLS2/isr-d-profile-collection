@@ -1,11 +1,9 @@
 [workspace]
 channels = ["conda-forge"]
 name = "isr-d-profile-collection"
-platforms = ["linux-64"]
-version = "2026.2.0"
-
-[system-requirements]
-libc = "2.17"
+platforms = [{ platform = "linux-64", glibc = "2.17" }]
+version = "2026.3.0"
+requires-pixi = ">=0.82.1"
 
 [activation.env]
 OPHYD_ASYNC_PRESERVE_DETECTOR_STATE = "YES"
@@ -13,7 +11,7 @@ OPHYD_ASYNC_PRESERVE_DETECTOR_STATE = "YES"
 [feature.profile.dependencies]
 bluesky-base = "==1.15.0"
 bluesky-queueserver = "*"
-matplotlib-base= ">=3.10"
+matplotlib-base = ">=3.10"
 networkx = ">=3.4.2,<4"
 nslsii = "==0.11.8"
 numpy = "*"
@@ -28,7 +26,9 @@ pydantic-numpy = "*"
 hdf5-external-filter-plugins = ">=0.1.0,<0.2"
 databroker = "==2.0.0b68"
 p4p = ">=4.2.0,<5"
-pip = ">=25.2,<26"
+pip = ">=26.2.2"
+ca-certificates = ">=2026.10.19"
+certifi = ">=2026.10.19"
 bluesky-tiled-plugins = "==2.0.2"
 
 # Linux-only dependencies (EPICS and HDF5 plugins may not be available on macOS)
@@ -71,6 +71,7 @@ isort = "*"
 prettier = "*"
 nbstripout = "*"
 prek = ">=0.3.8,<0.4"
+ca-certificates = ">=2026.10.19"
 
 [feature.dev.tasks]
 pre-commit-install = "prek install"
@@ -82,7 +83,14 @@ lint-fix = "ruff check --extend-select I --fix ."
 black-format = "black ."
 isort-fix = "isort ."
 
-[environments]
-terminal = {features=["profile", "terminal"], solve-group="profile"}
-qs = {features=["profile", "qs"], solve-group="profile"}
-dev = {features=["dev"], no-default-feature = true}
+[environments.terminal]
+features = ["profile", "terminal"]
+solve-group = "profile"
+
+[environments.qs]
+features = ["profile", "qs"]
+solve-group = "profile"
+
+[environments.dev]
+features = ["dev"]
+no-default-feature = true
